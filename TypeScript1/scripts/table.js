@@ -1,0 +1,20 @@
+import * as dataObject from "./data.js";
+var datosSeries = dataObject.Data;
+var bodyTablaTV = document.getElementById("bodyTablaTV");
+/**
+ * dwdwwdw
+ * @param data
+ * @param body
+ */
+function info(data, body) {
+    var htmlVar = "";
+    var promedio = 0;
+    for (var i = 0; i < data.length; i++) {
+        htmlVar += "\n        <tr>\n            <th scope=\"row\">".concat(data[i].id, "</th>\n            <td>").concat(data[i].name, "</td>\n            <td>").concat(data[i].channel, "</td>\n            <td>").concat(data[i].seasons, "</td>\n        </tr>");
+        promedio += data[i].seasons;
+    }
+    htmlVar += "\n    <tr id = \"promedio\"><h3>Seasons Average: ".concat(promedio / data.length, "</h3></tr>");
+    body.innerHTML = htmlVar;
+}
+info(datosSeries, bodyTablaTV);
+
